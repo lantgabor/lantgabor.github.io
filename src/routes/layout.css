@@ -1,2 +1,7 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+body {
+	background-color: #f0f4ff;
+	transition: background-color 800ms ease;
+}
