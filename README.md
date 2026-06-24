@@ -15,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-pnpm dlx sv@0.16.1 create --template minimal --types ts --add prettier eslint sveltekit-adapter="adapter:static" tailwindcss="plugins:typography" mcp="ide:other+setup:remote" --install pnpm src
+pnpm dlx sv@0.16.1 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:typography" sveltekit-adapter="adapter:static" --install pnpm myapp
 ```
 
 ## Developing
