@@ -86,6 +86,10 @@
 		</a>
 	</main>
 
+	<section id="work"></section>
+	<section id="about"></section>
+	<section id="contact"></section>
+
 	<footer class="flex items-center justify-between px-8 py-6 text-xs opacity-30 md:px-16">
 		<span>© 2026 Gabor Lant</span>
 		<div class="flex gap-6">
