@@ -3,13 +3,9 @@
 	import * as THREE from 'three';
 	import { onMount } from 'svelte';
 	import isolinesFrag from '../assets/isolines.frag?raw';
+	import type { Palette } from '$lib/palettes';
 
-	let { darkMode }: { darkMode: boolean } = $props();
-
-	const lightBgColor = new THREE.Color('#F0F4FF');
-	const lightLineColor = new THREE.Color('#4B7BE5');
-	const darkBgColor = new THREE.Color('#000000');
-	const darkLineColor = new THREE.Color('#4B7BE5');
+	let { palette }: { palette: Palette } = $props();
 
 	const vertexShader = `
 		void main() {
@@ -33,9 +29,12 @@
 	const uniforms = {
 		iTime: { value: 0.0 },
 		iResolution: { value: new THREE.Vector2(1, 1) },
-		uBackgroundColor: { value: new THREE.Color('#F0F4FF') },
-		uLineColor: { value: new THREE.Color('#4B7BE5') }
+		uBackgroundColor: { value: new THREE.Color('#000000') },
+		uLineColor: { value: new THREE.Color('#00C369') }
 	};
+
+	const targetBg = new THREE.Color();
+	const targetLine = new THREE.Color();
 
 	onMount(() => {
 		const updateResolution = () => {
@@ -51,11 +50,9 @@
 
 	useTask((delta) => {
 		uniforms.iTime.value += delta;
-
-		const targetBg = darkMode ? darkBgColor : lightBgColor;
-		const targetLine = darkMode ? darkLineColor : lightLineColor;
 		const lerpFactor = 1 - Math.exp(-4.0 * delta);
-
+		targetBg.set(palette.background);
+		targetLine.set(palette.main);
 		uniforms.uBackgroundColor.value.lerp(targetBg, lerpFactor);
 		uniforms.uLineColor.value.lerp(targetLine, lerpFactor);
 	});
