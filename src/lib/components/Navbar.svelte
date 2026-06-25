@@ -10,7 +10,7 @@
 </script>
 
 <header
-	class="fixed inset-x-0 top-0 z-20 flex items-center justify-between border-b px-8 py-3 [transition:background-color_700ms_ease,color_700ms_ease,border-color_700ms_ease] md:px-16"
+	class=" inset-x-0 top-0 z-20 flex items-center justify-between border-b px-8 py-3 [transition:background-color_700ms_ease,color_700ms_ease,border-color_700ms_ease] md:px-16"
 	style:background-color={palette.background}
 	style:color={palette.main}
 	style:border-color={palette.sub}
